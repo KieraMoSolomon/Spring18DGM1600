@@ -29,16 +29,22 @@ public class Hero : MonoBehaviour {
 
 
 	//function to jump
+	void Jump(){
+		
+	}
 
 
 	//on right arrow(move to the right)
 
 
 	//on up arrow(jump then come down)
+		//Jump();
+
+	//on colision function?
 
 
-	//on colision?
+	//death function
+	//Start();
 
-
-	
+	//
 }
