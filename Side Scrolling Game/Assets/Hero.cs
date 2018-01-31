@@ -25,6 +25,7 @@ public class Hero : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Jump();
+		HeroMovement();
 
 	}
 
@@ -32,7 +33,14 @@ public class Hero : MonoBehaviour {
 
 
 	//fuction to move side to side
-
+	void HeroMovement(){
+		if(Input.GetKey(KeyCode.RightArrow)){
+			//Vector3 position = this.transform.position;
+			//position.x++;
+			//this.transform.position = position;
+			transform.position += Vector3.right * speed * Time.deltaTime;
+		}
+	}
 
 	//function to jump
 	void Jump(){
