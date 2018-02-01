@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Hero : MonoBehaviour {
 	public int speed;
 	public int speedUp;
+	public int jumpCounter;
 	Rigidbody m_Rigidbody;
+	public bool grounded;
 	// Use this for initialization
 	void Start () {
 		//int startingLife = 10;
@@ -15,15 +17,26 @@ public class Hero : MonoBehaviour {
 		speed = 1;
 		speedUp = 5;
 		m_Rigidbody = GetComponent<Rigidbody>();
+		grounded = true;
+		jumpCounter = 2;
 		//powerup boost speed
 		//jump- goes up then down maybe in a function
 		//if cealing what happens
 		//break down into simple thinking
 		//jump up does it hit  
+		
+		
+		//CharacterController controller = GetComponent<CharacterController>();
+		//if(controller.isGrounded){
+		//	print("We are grounded");
+		//}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(transform.position.y ==.5){
+			grounded = true;
+		}
 		Jump();
 		HeroMovement();
 
@@ -38,29 +51,43 @@ public class Hero : MonoBehaviour {
 			//Vector3 position = this.transform.position;
 			//position.x++;
 			//this.transform.position = position;
+			//flip to look to the right
 			transform.position += Vector3.right * speed * Time.deltaTime;
+		}
+		if(Input.GetKey(KeyCode.LeftArrow)){
+			//flip to look left
+			transform.position -= Vector3.right * speed * Time.deltaTime;
 		}
 	}
 
 	//function to jump
 	void Jump(){
-		if(Input.GetKeyDown(KeyCode.UpArrow)){
-			m_Rigidbody.velocity = transform.up * speedUp;
+
+		if(grounded){
+			jumpCounter = 2;
+			while(jumpCounter > 0){
+				if(Input.GetKeyDown(KeyCode.UpArrow)){
+					m_Rigidbody.velocity = transform.up * speedUp;
+
+					//double jump limit
+					jumpCounter --;	
+				}
+			}
 		}
+	
 	}
 
+	//function to crawl
 
-	//on right arrow(move to the right)
 
-
-	//on up arrow(jump then come down)
-		//Jump();
 
 	//on colision function?
 
 
-	//death function
+	//death function(){
+	//}
+	//restart function(){
 	//Start();
+	//}
 
-	//
 }
