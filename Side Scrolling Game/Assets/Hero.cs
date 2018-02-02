@@ -34,9 +34,6 @@ public class Hero : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(transform.position.y ==.503){
-			grounded = true;
-		}
 		Jump();
 		HeroMovement();
 
@@ -63,16 +60,16 @@ public class Hero : MonoBehaviour {
 	//function to jump
 	void Jump(){
 
-		if(grounded){
-			jumpCounter = 2;
+		if(grounded && Input.GetKeyDown(KeyCode.UpArrow)){
 			while(jumpCounter > 0){
-				if(Input.GetKeyDown(KeyCode.UpArrow)){
 					m_Rigidbody.velocity = transform.up * speedUp;
 
 					//double jump limit
-					jumpCounter --;	
-				}
+					jumpCounter --;
 			}
+		}
+		else{
+			//jumpCounter = 2;
 		}
 	
 	}
