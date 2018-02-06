@@ -16,7 +16,7 @@ public class Hero : MonoBehaviour {
 		//int startingDamage = 2;
 		speed = 1;
 		speedUp = 5;
-		m_Rigidbody = GetComponent<Rigidbody>();
+		//m_Rigidbody = GetComponent<Rigidbody>();
 		grounded = true;
 		jumpCounter = 2;
 		//powerup boost speed
@@ -26,10 +26,10 @@ public class Hero : MonoBehaviour {
 		//jump up does it hit  
 		
 		
-		//CharacterController controller = GetComponent<CharacterController>();
-		//if(controller.isGrounded){
-		//	print("We are grounded");
-		//}
+		CharacterController controller = GetComponent<CharacterController>();
+		if(controller.isGrounded){
+			print("We are grounded");
+		}
 	}
 	
 	// Update is called once per frame
