@@ -20,7 +20,6 @@ public class Hero : MonoBehaviour {
 		grounded = true;
 		jumpCounter = 2;
 		//powerup boost speed
-		//jump- goes up then down maybe in a function
 		//if cealing what happens
 		//break down into simple thinking
 		//jump up does it hit  
@@ -31,6 +30,8 @@ public class Hero : MonoBehaviour {
 			print("We are grounded");
 		}
 	}
+
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,6 +45,7 @@ public class Hero : MonoBehaviour {
 
 	//fuction to move side to side
 	void HeroMovement(){
+		int AnInt = 15;
 		if(Input.GetKey(KeyCode.RightArrow)){
 			//Vector3 position = this.transform.position;
 			//position.x++;
@@ -59,7 +61,6 @@ public class Hero : MonoBehaviour {
 
 	//function to jump
 	void Jump(){
-
 		if(grounded && Input.GetKeyDown(KeyCode.UpArrow)){
 			while(jumpCounter > 0){
 					m_Rigidbody.velocity = transform.up * speedUp;
