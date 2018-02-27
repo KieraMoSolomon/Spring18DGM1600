@@ -16,7 +16,7 @@ public class Hero : MonoBehaviour {
 		//int startingDamage = 2;
 		speed = 1;
 		speedUp = 5;
-		//m_Rigidbody = GetComponent<Rigidbody>();
+		m_Rigidbody = GetComponent<Rigidbody>();
 		grounded = true;
 		jumpCounter = 2;
 		//powerup boost speed
@@ -25,10 +25,10 @@ public class Hero : MonoBehaviour {
 		//jump up does it hit  
 		
 		
-		CharacterController controller = GetComponent<CharacterController>();
+		/*CharacterController controller = GetComponent<CharacterController>();
 		if(controller.isGrounded){
 			print("We are grounded");
-		}
+		}*/
 	}
 
 	
@@ -45,7 +45,7 @@ public class Hero : MonoBehaviour {
 
 	//fuction to move side to side
 	void HeroMovement(){
-		int AnInt = 15;
+		//int AnInt = 15;
 		if(Input.GetKey(KeyCode.RightArrow)){
 			//Vector3 position = this.transform.position;
 			//position.x++;
@@ -70,7 +70,7 @@ public class Hero : MonoBehaviour {
 			}
 		}
 		else{
-			//jumpCounter = 2;
+			jumpCounter = 2;
 		}
 	
 	}
